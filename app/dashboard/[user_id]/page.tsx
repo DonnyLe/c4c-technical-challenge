@@ -1,5 +1,5 @@
 import AuthButton from "@/components/AuthButton";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/client";
 import { redirect } from "next/navigation";
 import { QueryData } from "@supabase/supabase-js";
 import AddPartnerOrganization from "../PartnerOrganizationForm";

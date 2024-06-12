@@ -4,11 +4,12 @@
 
 ## Quick Start
 - Clone repo and in terminal, `cd c4c-technical-challenge`
-- Run `npm run dev` 
-- Open `http://localhost:3000`, and **sign up**  (not sign in)  using a Northeastern email. 
 - Create a `.env.local` file with 
    `NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]`
    `NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]` (I resubmitted Google form with API keys)
+- Run `npm run dev` 
+- Open `http://localhost:3000`, and **sign up**  (not sign in)  using a Northeastern email. 
+
 
 
 ## Overview Design

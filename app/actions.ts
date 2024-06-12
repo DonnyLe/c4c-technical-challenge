@@ -11,7 +11,7 @@ export async function SubmitPartnerOrganization(data: AllPartnersData) {
         logo_url: data.partners[i].logo_link , 
         description: data.partners[i].partner_description, active: data.partners[i].active}]); 
     }
-    revalidatePath("/dashboard", "page")
+    revalidatePath("/dashboard/[user_id]", "page")
     
 
 }
@@ -23,6 +23,6 @@ export async function removePartnerOrganization(organizationId: string) {
     .delete()
     .eq('id', organizationId);
     
-    revalidatePath("/dashboard", "page")
+    revalidatePath("/dashboard/[user_id]", "page")
 
 }
