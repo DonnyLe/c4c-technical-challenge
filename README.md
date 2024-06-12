@@ -4,58 +4,24 @@
 
 ## Quick Start
 - Clone repo and in terminal, `cd c4c-technical-challenge`
+- Run `npm install` 
 - Run `npm run dev` 
-- Open `http://localhost:3000`, and **sign up** (not sign in)using a Northeastern email. 
+- Open `http://localhost:3000`, and **sign up**  (not sign in)using a Northeastern email. 
 
+## Design Overview 
+The web-app is built with Next.js and Supabase using Tailwind CSS and Shadcn for components/styling. Supabase is used for both authorization and storing data. The Postgres database in Supabase simply has one table for storing information for each inputted partner organization. 
 
+In the frontend, the web app contains a dashboard page (which contains a form) and a login screen. The dashboard page utilizes both server-side rendering and server-side data fetching, along with Next.js caching features. By doing this, when the user opens the dashboard, the page loads with everything rendered (except the images which use client-side fetching to get the images from the links). In addition, I cache all data fetched to reduce the refetches when refreshing the page. The only time data is revalidated (refetched) is after submitting new partner organizations from the form. 
 
+For the form (PartnerOrganizationForm.tsx), I used the zod libary for client-side validation and the form from the Shadcn component library (along with their input/checkbox components). In addition, I used the useFieldArray hook to allow users to input data for multiple partner organizations before submitting. I personally enjoy using these libraries for creating forms since they reduce the number of rerenders (which come when using useState for forms) and handle validation seemlessly (plus they come pre-styled). 
 
+To handle POST requests to supabase, I used a Next.js feature, server actions, to insert data into Supabase. These post requests include adding new partner organizations and removing partner organizations. 
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+## Reflection
+Overall, this technical challenge went very smoothly besides some hiccups with authentication using Supabase. With the free tier of Supabase, you are only allowed three emails verification per hour which made it very fustrating to test if my authentication worked. As a result, I removed the need for email verification. If I had more time, I most likely would've looked for a better solution for authentication since I don't believe Supabase is the best option for it. I think this technical challenge was great practice with working with Next.js design patterns like server-side rendering. It was also great general web development practice in CSS and React. 
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+## Bonus Features
+- Authorization (only Northeastern emails work with login)
+- Data persists (in Supabase database)
+- Adding multiple organizations at the same time (meaning you don't have to submit organizations one by one)
 
-## Clone and run locally
-
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
-
-2. Create a Next.js app using the Supabase Starter template npx command
-
-   ```bash
-   npx create-next-app -e with-supabase
-   ```
-
-3. Use `cd` to change into the app's directory
-
-   ```bash
-   cd name-of-new-app
-   ```
-
-4. Rename `.env.local.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-## Feedback and issues
-
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
