@@ -19,11 +19,10 @@ For the form (PartnerOrganizationForm.tsx), I used the zod libary for form valid
 To handle POST requests to supabase, I used a Next.js feature, server actions, to insert data into Supabase. These POST requests include adding new partner organizations and removing partner organizations. 
 
 ## Reflection
-Overall, this technical challenge went very smoothly besides some hiccups with authentication using Supabase. With the free tier of Supabase, you are only allowed three emails verification per hour which made it very fustrating to test if my authentication worked. As a result, I removed the need for email verification. If I had more time, I most likely would've looked for a better solution for authentication since I don't believe Supabase is the best option for it. In general, I think this technical challenge was great practice with working with Next.js design patterns like server-side rendering. It was also great general web development practice in TailwindCSS and React. 
+Overall, this technical challenge went very smoothly besides some hiccups with authentication using Supabase. With the free tier of Supabase, you are only allowed three emails verification per hour which made it very fustrating to test if my authentication worked. As a result, I removed the need for email verification (which of course is a huge security risk, but I think it'll make this project much easier for the graders). If I had more time, I most likely would've looked for a better solution for authentication since I don't believe Supabase is the best option for it. In general, I think this technical challenge was great practice with working with Next.js design patterns like server-side rendering. It was also great general web development practice in TailwindCSS and React. 
 
 
 ## Bonus Features
 - Authorization (only Northeastern emails work with login)
 - Data persists (in Supabase database)
 - Adding multiple organizations at the same time (meaning you don't have to submit organizations one by one)
-`
